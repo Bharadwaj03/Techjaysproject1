@@ -17,10 +17,10 @@ const Dashboard = () => {
  
  
 
-  const openModal = () => {
-    setIsModalOpen(true);
+  // const openModal = () => {
+  //   setIsModalOpen(true);
     
-  };
+  // };
 
   const closeModal = () => {
     setIsModalOpen(false);
@@ -35,9 +35,9 @@ const Dashboard = () => {
         <img className='techjayss' src={techjaysLogo} alt="Techjays Logo" />
       </div>
 
-   <button className='professional-button' onClick={openModal} >Add Project</button>
+   {/* <button className='professional-button' onClick={openModal} >Add Project</button> */}
        
-   <div style={{ display: '', alignItems: 'center', marginLeft: '1150px', marginTop: '-93px', backgroundColor: '', width: '330px' }}>
+   <div style={{ display: '', alignItems: 'center', marginLeft: '1165px', marginTop: '-93px', backgroundColor: '', width: '330px' }}>
   <div style={{ marginRight: '10px', fontWeight: '500', fontSize: '16px', color: 'black',textAlign:'start',fontFamily:'Arial' }}>{name}</div>
   <h1 style={{ fontSize: '15px', color: 'lightgrey', fontWeight: '500',marginTop:'0px' ,marginRight:'100px',textAlign:'start'}}>Techjays</h1>
   <img src={image} alt="Google User" style={{ width: '40px', height: '40px', borderRadius: '50%', marginTop: '-90px', marginLeft: '70px' }} />

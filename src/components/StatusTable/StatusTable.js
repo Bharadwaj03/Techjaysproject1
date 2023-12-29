@@ -66,22 +66,23 @@ const StatusTable = () => {
   <h1 style={{ fontSize: '15px', color: 'lightgrey', fontWeight: '500',marginTop:'0px' ,marginRight:'100px',textAlign:'start'}}>Techjays</h1>
   <img src={image} alt="Google User" style={{ width: '40px', height: '40px', borderRadius: '50%', marginTop: '-90px', marginLeft: '70px' }} />
 </div>
+<div style={{
+  position: 'absolute',
+  top: '200px', 
+  left: '340px', 
+  textAlign: 'start',
+  width: '100%',
+}}>
+  <FaChevronDown  className='chevron' />
+  <h1 style={{ fontSize: '19px', fontWeight: '600', marginTop: '5px' }}>Phase 1 Sprint-1</h1>
+</div>
 
-    <div style={{position:'absolute',top:'26%',left:'24%'}}>
-   
-               
-                  <FaChevronDown className='chevron'/>
-             
-                
-      
-      
-      
-      <h1 style={{fontSize:'19px',fontWeight:'600'}}>Phase 1 Sprint 1</h1></div>
    
                 
         
 
           <main role="main" className="col-md-9 col-lg-10 px-0">
+           
         
             <div className="table-container table-responsive">
               <table className="table table-striped custom-table" style={{ boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)' }}>
@@ -129,8 +130,8 @@ const StatusTable = () => {
                     </tr>
                   ))}
                   <tr>
-                    <td colSpan="5" style={{ textAlign: 'center', height:'10px' ,padding:'20px'}}>
-                      <h1 onClick={addNewRow} style={{ color: 'black', fontSize: '15px', cursor: 'pointer', marginRight: '950px',marginBottom:'20px' }}>
+                    <td colSpan="5" style={{ textAlign: 'center', height:'10px' ,padding:'20px',paddingTop:'29px'}}>
+                      <h1 onClick={addNewRow} style={{ color: 'black', fontSize: '15px', cursor: 'pointer', marginRight: '950px',marginBottom:'15px' }}>
                         +Add
                       </h1>
                     </td>
@@ -146,5 +147,3 @@ const StatusTable = () => {
 };
 
 export default StatusTable;
-
-

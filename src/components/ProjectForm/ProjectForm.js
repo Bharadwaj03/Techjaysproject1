@@ -115,7 +115,7 @@ const AddProjectForm = ({ closeModal: closeParentModal, onProjectAdded }) => {
 
   return (
     <div className='form-container'>
-      <h2 style={{marginTop:'20px',fontSize:'44px',fontWeight:'600',marginBottom:'70px',color:'red',marginRight:'230px'}}>Add Project</h2>
+      {/* <h2 style={{marginTop:'20px',fontSize:'44px',fontWeight:'600',marginBottom:'70px',color:'red',marginRight:'230px'}}>Add Project</h2> */}
       <form onSubmit={handleSubmit}>
         <input type="text" style={{width:'360px',marginRight:'140px',paddingLeft:'20px'}} value={projectName} onChange={(e) => setProjectName(e.target.value)} placeholder='Project Name' required />
 
@@ -125,9 +125,6 @@ const AddProjectForm = ({ closeModal: closeParentModal, onProjectAdded }) => {
             {slackMembers.map((member) => (
               <option key={member.id} value={member.id} style={{color:'black',width:'160px',fontWeight:'500',textAlign:'start',lineHeight:'10px',fontFamily:'Arial',fontSize:'18px',marginTop:'80px',paddingLeft:'90px'}}>
                 {member.real_name}
-                
-                
-       
               </option>
             ))}
           </select>
