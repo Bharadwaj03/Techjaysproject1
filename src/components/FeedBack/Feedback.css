@@ -1,0 +1,23 @@
+.feedback-details{
+
+    width: 1030px;
+    height: 500px;
+    margin-top: -440px;
+    margin-left: 340px;
+    margin-bottom: 00px;
+    border-radius: 15px;
+    border: 1px solid white; 
+    background-color: white;
+    box-shadow: 0 0 10px 5px rgba(241, 240, 240, 0.3);
+}
+
+.info{
+
+   
+    width: 1000px;
+    height: 20px;
+    position: absolute;
+    top: 28%;
+    left: 25%;
+    display: flex;
+}
