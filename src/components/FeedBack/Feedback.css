@@ -32,8 +32,8 @@
     height: 600px;
     margin-top: 80px;
     border-radius: 10px;
-    margin-bottom: 20px;  /* Add margin if needed */
-    background-color: white; /* Add background color if needed */
+    margin-bottom: 20px;  
+    background-color: white; 
   }
   
 
@@ -72,6 +72,6 @@
     padding: 10px;
     border: 1px solid #ccc;
     z-index: 1;
-    /* Add other styling as needed */
+    
   }
   

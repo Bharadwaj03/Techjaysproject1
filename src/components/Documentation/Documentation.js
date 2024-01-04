@@ -44,7 +44,7 @@ function Documentation() {
   };
   
   useEffect(() => {
-    // Log the selectedFiles array after it has been updated
+    
     console.log('Selected Files Array:', selectedFiles);
   }, [selectedFiles]);
   
@@ -85,7 +85,7 @@ function Documentation() {
 
   const closeModal = () => {
     setIsModalOpen(false);
-    // Refresh data after the modal is closed
+   
     fetchData();
   };
 
@@ -103,12 +103,12 @@ function Documentation() {
     console.log('Selected File for document:', selectedFile);
   
     if (selectedFile) {
-      // Open the AttachmentModal
+   
       setIsModalOpen(true);
     } else {
-      // Handle the case when no file is selected
+     
       console.error('No file selected for document:', document);
-      // You might want to show a message to the user or perform other actions
+    
     }
   };
   

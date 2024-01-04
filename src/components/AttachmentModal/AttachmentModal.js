@@ -41,12 +41,12 @@ const AttachmentModal = ({ selectedFile, selectedDocument, downloadAttachment, c
         <div className="attachment-details">
           <h2>Attachments</h2>
           
-          {/* Display selected document if it exists */}
+        
           {selectedDocument.attachment && (
             <p style={{ backgroundColor: 'lightgrey', padding: '10px', borderRadius: '12px', marginRight: '199px', display: 'inline', marginTop: '30px' }}>{selectedDocument.attachment}</p>
           )}
 
-          {/* Display selected files if they exist */}
+          
           {selectedFile && selectedFile.length > 0 && (
             <div>
               {selectedFile.map((file, index) => (

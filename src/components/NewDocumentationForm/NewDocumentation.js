@@ -117,7 +117,7 @@ console.log(modalOpen)
         // Update the table with the new data
         updateTable(responseData);
 
-        // Clear the form data after submission
+        
         setFormData({
           description: '',
           templateLink: '',

@@ -14,7 +14,7 @@ const receivedTokenToken=localStorage.getItem('accessToken')
 console.log("googleaccesstoken",receivedTokenToken)
 const [csrfToken, setCsrfToken] = useState('');
   console.log(csrfToken)
-  // Fetch CSRF token on component mount
+ 
   useEffect(() => {
     const fetchCsrfToken = async () => {
       const token = await getCsrfToken();
@@ -27,15 +27,15 @@ const [csrfToken, setCsrfToken] = useState('');
   const [formData, setFormData] = useState({
     description: '',
     attachment: null,
-    priority: null, // Add priority to your state
-    location: '', // Add location to your state
+    priority: null, 
+    location: '', 
     
   });
 
   const closeModalLocal = () => {
     console.log('leo');
     setModalOpen(false);
-    closeParentModal(); // Call the provided closeModal function
+    closeParentModal(); 
   };
 
   const handleInputChange = (e) => {
@@ -55,20 +55,20 @@ const [csrfToken, setCsrfToken] = useState('');
   };
 
   const openFileInput = () => {
-    // Create the file input dynamically
+    
     const input = document.createElement('input');
     input.type = 'file';
     input.accept = '.pdf,.doc,.docx';
     input.style.display = 'none';
     input.addEventListener('change', handleFileChange);
 
-    // Append the input to the body
+    
     document.body.appendChild(input);
 
-    // Trigger the input click
+   
     input.click();
 
-    // Save the input to state
+   
     setFileInput(input);
   };
 
@@ -80,7 +80,7 @@ const [csrfToken, setCsrfToken] = useState('');
         attachment: file,
       }));
 
-      // Remove the file input from the body
+      
       if (fileInput && fileInput.parentNode) {
         fileInput.parentNode.removeChild(fileInput);
       } else {
@@ -96,13 +96,13 @@ const [csrfToken, setCsrfToken] = useState('');
       const formDataToSend = new FormData();
       formDataToSend.append('description', formData.description);
       formDataToSend.append('attachment', formData.attachment);
-      formDataToSend.append('priority', formData.priority?.value); // Include priority in form data
-      formDataToSend.append('location', formData.location); // Include location in form data
+      formDataToSend.append('priority', formData.priority?.value); 
+      formDataToSend.append('location', formData.location); 
       console.log(formDataToSend);
       const currentDate = new Date();
       formDataToSend.append('date', currentDate.toISOString());
 
-      // Send the form data to the Django backend using fetch
+    
       const response = await fetch('http://localhost:8000/api/feedback/', {
         method: 'POST',
         body: formDataToSend,
@@ -120,16 +120,14 @@ const [csrfToken, setCsrfToken] = useState('');
       if (response.ok) {
         window.dispatchEvent(new Event('feedbackadded'));
         const responseData = await response.json();
-
-        // Update the table with the new data
         updateTable(responseData);
 
-        // Clear the form data after submission
+        
         setFormData({
           description: '',
           attachment:null,
-          priority: null, // Clear priority after submission
-          location: '', // Clear location after submission
+          priority: null, 
+          location: '', 
         });
       } else {
         console.error('Failed to submit form:', response.statusText);
