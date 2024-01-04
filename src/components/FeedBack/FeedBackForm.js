@@ -1,19 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import Select from 'react-select';
 import './FeedBackForm.css';
+import getCsrfToken from '../CsrfToken/CsrfToken';
 import { FaPaperclip } from 'react-icons/fa';
 
 const FeedBackForm = ({ updateTable, closeModal: closeParentModal }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [fileInput, setFileInput] = useState(null);
   console.log(modalOpen);
+  const accessToken = localStorage.getItem('accessToken');
+console.log(accessToken)
+const receivedTokenToken=localStorage.getItem('accessToken')
+console.log("googleaccesstoken",receivedTokenToken)
+const [csrfToken, setCsrfToken] = useState('');
+  console.log(csrfToken)
+  // Fetch CSRF token on component mount
+  useEffect(() => {
+    const fetchCsrfToken = async () => {
+      const token = await getCsrfToken();
+      setCsrfToken(token);
+    };
+
+    fetchCsrfToken();
+  }, []);
 
   const [formData, setFormData] = useState({
     description: '',
-    templateLink: '',
     attachment: null,
     priority: null, // Add priority to your state
     location: '', // Add location to your state
+    
   });
 
   const closeModalLocal = () => {
@@ -79,19 +95,30 @@ const FeedBackForm = ({ updateTable, closeModal: closeParentModal }) => {
     try {
       const formDataToSend = new FormData();
       formDataToSend.append('description', formData.description);
-      formDataToSend.append('templateLink', formData.templateLink);
       formDataToSend.append('attachment', formData.attachment);
       formDataToSend.append('priority', formData.priority?.value); // Include priority in form data
       formDataToSend.append('location', formData.location); // Include location in form data
       console.log(formDataToSend);
+      const currentDate = new Date();
+      formDataToSend.append('date', currentDate.toISOString());
 
       // Send the form data to the Django backend using fetch
-      const response = await fetch('http://your-django-backend-url/api/documentation/', {
+      const response = await fetch('http://localhost:8000/api/feedback/', {
         method: 'POST',
         body: formDataToSend,
+        headers: {
+   
+          'X-CSRFToken': csrfToken,
+          Authorization: `Bearer ${receivedTokenToken}`,
+         
+      
+      
+      
+        },
       });
 
       if (response.ok) {
+        window.dispatchEvent(new Event('feedbackadded'));
         const responseData = await response.json();
 
         // Update the table with the new data
@@ -100,8 +127,7 @@ const FeedBackForm = ({ updateTable, closeModal: closeParentModal }) => {
         // Clear the form data after submission
         setFormData({
           description: '',
-          templateLink: '',
-          attachment: null,
+          attachment:null,
           priority: null, // Clear priority after submission
           location: '', // Clear location after submission
         });

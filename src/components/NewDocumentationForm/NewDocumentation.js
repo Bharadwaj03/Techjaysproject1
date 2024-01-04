@@ -1,10 +1,29 @@
 
-import React, { useState } from 'react';
+
+
+
+import React, { useState,useEffect } from 'react';
 import './NewDocumentationForm.css';
+import getCsrfToken from '../CsrfToken/CsrfToken';
 import {  FaPaperclip } from 'react-icons/fa';
 const NewDocumentationForm = ({ updateTable,closeModal: closeParentModal }) => {
 const [modalOpen, setModalOpen] = useState(false);
 const [fileInput, setFileInput] = useState(null); 
+const accessToken = localStorage.getItem('accessToken');
+console.log(accessToken)
+const receivedTokenToken=localStorage.getItem('accessToken')
+console.log("googleaccesstoken",receivedTokenToken)
+const [csrfToken, setCsrfToken] = useState('');
+  console.log(csrfToken)
+  // Fetch CSRF token on component mount
+  useEffect(() => {
+    const fetchCsrfToken = async () => {
+      const token = await getCsrfToken();
+      setCsrfToken(token);
+    };
+
+    fetchCsrfToken();
+  }, []);
 console.log(modalOpen)
   const [formData, setFormData] = useState({
     description: '',
@@ -68,6 +87,8 @@ console.log(modalOpen)
 
 
   const submitForm = async () => {
+    console.log('Token before request:', accessToken);
+
     try {
       const formDataToSend = new FormData();
       formDataToSend.append('description', formData.description);
@@ -76,8 +97,17 @@ console.log(modalOpen)
       console.log(formDataToSend)
 
       // Send the form data to Django backend using fetch
-      const response = await fetch('http://your-django-backend-url/api/documentation/', {
+      const response = await fetch('http://localhost:8000/api/documentation/', {
         method: 'POST',
+        headers: {
+   
+          'X-CSRFToken': csrfToken,
+          Authorization: `Bearer ${receivedTokenToken}`,
+         
+      
+      
+      
+        },
         body: formDataToSend,
       });
 

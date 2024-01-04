@@ -8,7 +8,7 @@ body {
   .sidebar {
       width: 310px;
       color: #fff;
-      padding: 20px;
+      padding: 10px;
       height: 800px;
       border-radius: 0px;
       background-color: rgb(247, 247, 247);
@@ -25,7 +25,7 @@ body {
       padding-right: 19px;
       margin-left: 58px;
       margin-top: 84px;
-      position: fixed;
+      /* position: fixed; */
       line-height: 0px;
       align-items: start;
    
@@ -63,8 +63,8 @@ body {
       font-family: 'Arial';
       text-decoration: none;
       display: block; 
-      width: 100%; 
-      width: 100%;
+     
+      width: 85%;
       font-size: 16px;
       padding: 10px;
       padding-left: 20px; 
@@ -95,7 +95,7 @@ body {
 
   
     .active-link {
-     background-color: rgb(31, 29, 29);
+      background-color: rgb(31, 29, 29);
      border-radius: 8px;
      color: rgb(214, 208, 208); 
      margin-right: 0px;
@@ -128,7 +128,14 @@ body {
   .techjays{
     width: 200px;
     height: 60px;
-    position: fixed;
+    position:  relative;
     margin-top: 40px;
-    margin-left: -53px;
+    margin-left: 43px;
   }
+
+  .sidebar-link:not(.active-link):hover {
+    color: rgb(243, 243, 243); /* Change to the desired hover color */
+    background-color: rgb(51, 49, 49);
+    border-radius: 8px;
+  }
+  

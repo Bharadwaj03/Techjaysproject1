@@ -64,3 +64,81 @@
     left: -29px;
     cursor: pointer;
 }
+
+
+
+
+@media only screen and (min-width: 200px) and (max-width:1268px) {
+ .container-fluid{
+  width: 100%;
+  
+
+
+ }
+
+
+ .custom-table{
+
+  width: 100%;
+  overflow: auto;
+ 
+  
+ }
+ .table-container table{
+  width: 10%;
+ 
+ }
+ #tablestatus {
+
+  width: 750px;
+  margin-right: 50px;
+ 
+ 
+
+ }
+ #tablestatus #t1{
+  width: 20%;
+  
+ }
+
+ #tablestatus #t2{
+
+  margin-right: 20px;
+  width: 120px;
+ }
+ #t1{
+  width:  20% !important;
+ }
+ #t2{
+  width: 10% !important;
+ }
+ #t3{
+  width: 10% !important;
+ }
+#t4{
+  width: 10% !important;
+}
+#btn1{
+
+  margin-left: 10px; 
+  position: relative;
+  left: 893px !important; 
+  top: 110px;
+}
+#btn2{
+
+  margin-left: 10px; 
+  position: relative;
+  left: 720px !important; 
+  top: 110px; 
+ 
+}
+#userd{
+  position: absolute;
+  left: -300px !important;
+  
+ 
+}
+
+} 
+
